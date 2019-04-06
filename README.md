@@ -1,2 +1,2 @@
 # segmentation
-Repository for scene understanding and semantic segmentation using the Camvid Dataset.
+Repository for segmentation for neurite cell boundaries using tensorflow 2.0 alpha
