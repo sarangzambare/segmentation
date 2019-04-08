@@ -6,6 +6,7 @@ import glob
 import skimage.io as io
 
 
+
 def prepare_data(img,label,is_multi_class,num_class):
     if(is_multi_class):
         img = img / 255
@@ -23,7 +24,31 @@ def prepare_data(img,label,is_multi_class,num_class):
     return (img,label)
 
 
+#if not using keras inbuilt fit methods
+def training_generator(raw_img_dir,label_img_dir,batch_size):
 
+
+    listdir = os.listdir(raw_img_dir)
+    num_batches = int(len(listdir)/batch_size)
+
+    for batch_num in range(num_batches):
+        file_list = listdir[batch_num*batch_size:batch_num*batch_size+batch_size]
+        size = len([fname for fname in file_list if fname.endswith('.png')])
+        x_tensor = np.zeros((size,256,256,1),dtype='float32')
+        y_tensor = np.zeros((size,256,256,1),dtype='float32')
+        for i,fname in enumerate(file_list):
+            if(fname.endswith('.png')):
+                img_raw = tf.io.read_file(raw_img_dir + fname)
+                img_labeled = tf.io.read_file(label_img_dir + fname)
+                img_decoded_raw = tf.image.resize(tf.image.decode_image(img_raw,dtype=tf.float32),size=[256,256])
+                img_decoded_labeled = tf.image.resize(tf.image.decode_image(img_labeled,dtype=tf.float32),size=[256,256])
+                x_tensor[i] = img_decoded_raw
+                y_tensor[i] = img_decoded_labeled
+
+        yield x_tensor, y_tensor
+
+
+# if using inbuilt fit_generator method
 def get_train_generator(batch_size,
                         train_dir,
                         image_path,
@@ -87,7 +112,7 @@ def get_train_generator(batch_size,
         img,label = prepare_data(img,label,is_multi_class,num_class)
         yield (img,label)
 
-
+# if using inbuilt fit_generator method
 def test_generator(test_dir,num_images = 30,target_size = (256,256),is_multi_class = False,as_gray = True):
     for i in range(num_images):
         img = io.imread(os.path.join(test_dir,"%d.png"%i),as_gray = as_gray)
