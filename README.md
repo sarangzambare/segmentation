@@ -232,9 +232,9 @@ The acheived accuracy was : **96% on training set, 92% on test set**
 
 Input image             |  Segmented image
 :-------------------------:|:-------------------------:
-![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/39.png)
-![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/29.png)
-![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/19.png)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/39.png)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/29.png)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/19.png)
 
 
 
