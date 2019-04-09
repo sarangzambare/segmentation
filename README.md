@@ -41,9 +41,9 @@ The idea is to have a neural network architecture consisting of:
 *Blue maps are inputs, and cyan maps are outputs*
 <table style="width:100%; table-layout:fixed;">
   <tr>
-    <td><img width="150px" src="gif/no_padding_no_strides_transposed.gif"></td>
-    <td><img width="150px" src="gif/arbitrary_padding_no_strides_transposed.gif"></td>
-    <td><img width="150px" src="gif/padding_strides_transposed.gif"></td>
+    <td><img width="150px" src="png/no_padding_no_strides_transposed.gif"></td>
+    <td><img width="150px" src="png/arbitrary_padding_no_strides_transposed.gif"></td>
+    <td><img width="150px" src="png/padding_strides_transposed.gif"></td>
   </tr>
   <tr>
     <td>No padding, no strides, transposed</td>
