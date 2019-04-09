@@ -242,13 +242,8 @@ Input image             |  Segmented image
 
 ### Animating the training process (notice how organelles tend to disappear):
 
-Input image             |  Segmented image
+Input image             |  Segmented image, as epochs progress
 :-------------------------:|:-------------------------:
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/3_256.gif)
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2_256.gif)
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/3_256.gif)
-
-
-
-
-For this specific problem, a host of non-machine learning approaches might give better results as well. (e.g. Edge detection algorithms).
