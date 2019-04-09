@@ -247,3 +247,10 @@ Input image             |  Segmented image, as epochs progress
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/3_256.gif)
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2_256.gif)
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/3_256.gif)
+
+
+## References :
+
+1. [ISBI 2012 2D segmentation challenge](http://brainiac2.mit.edu/isbi_challenge/home)
+2. [VNC; Cardona et al., 2010](https://www.frontiersin.org/articles/10.3389/fnana.2015.00142/full#B6)
+3. [Vincent Dumoulin, Francesco Visin](https://github.com/vdumoulin/conv_arithmetic)
