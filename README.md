@@ -6,7 +6,7 @@ Tensorflow 2.0 is here, session is gone. This repository uses tensorflow 2.0 to 
 
 Input image             |  Segmented image, animated over epochs.
 :-------------------------:|:-------------------------:
-![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/1.GIF)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/3_long.gif)
 
 *Semantic segmentation is the process of assigning each pixel in a given image a class, to get a better understanding of the image or for further processing.*
 
