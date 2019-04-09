@@ -2,6 +2,10 @@
 
 Tensorflow 2.0 is here, session is gone. This repository uses tensorflow 2.0 to train a fully convolutional segmentation model, consisting of downsampling and upsampling convolutional layers.
 
+Input image             |  Segmented image, animated over epochs.
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15.png)  |  ![](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/1.gif)
+
 *Semantic segmentation is the process of assigning each pixel in a given image a class, to get a better understanding of the image or for further processing.*
 
 ## The problem
