@@ -11,7 +11,7 @@ Input image             |  Segmented image, animated over epochs.
 *Semantic segmentation is the process of assigning each pixel in a given image a class, to get a better understanding of the image or for further processing.*
 
 ## The problem
-In this case, we deal with a set of 30 consecutive images (512 × 512 pixels) from a serial section Transmission Electron Microscopy (ssTEM) dataset of the Drosophila first instar larva ventral nerve cord ([VNC; Cardona et al., 2010](https://www.frontiersin.org/articles/10.3389/fnana.2015.00142/full#B6)). **The aim is to assign each pixel to either a "0" for belonging to the boundary between neurons, or "1" for belonging to the inside of the cell, resulting into a binary image with "black" for cell boundaries and "white" for other areas.**
+This task is a part of the [ISBI 2012 2D segmentation challenge](http://brainiac2.mit.edu/isbi_challenge/home). We deal with a set of 30 consecutive images (512 × 512 pixels) from a serial section Transmission Electron Microscopy (ssTEM) dataset of the Drosophila first instar larva ventral nerve cord ([VNC; Cardona et al., 2010](https://www.frontiersin.org/articles/10.3389/fnana.2015.00142/full#B6)). **The aim is to assign each pixel to either a "0" for belonging to the boundary between neurons, or "1" for belonging to the inside of the cell, resulting into a binary image with "black" for cell boundaries and "white" for other areas.**
 
 Boundary detection is challenging because many boundaries look fuzzy and ambiguous. Furthermore, only boundaries between neurites should be detected, and those of intracellular organelles like mitochondria and synaptic vesicles should be ignored.  
 
@@ -208,6 +208,35 @@ ________________________________________________________________________________
 ```
 
 Note that all the "concatenate" layers are the skip connections.
+
+
+## Training :
+
+The dataset consists of only 30 training images. This is far from enough to train a deep neural network. Hence, we augment the data, using such transformations as mirroring, shearing, rotating etc. All these transformations are beautifully taken care of by keras' built function called 'ImageDataGenerator'. This function gives us a python generator object, from which we can indefinitely extract transformed images. This process is taken care of in the 'data_pre.py' module.
+
+Before the images are fed into the network, they are resized to (256,256) to decrease the computational expense. Below is a list of parameters used for training :
+
+* **Steps per epoch = 1000**
+* **Batch size = 2 images per step**
+* **Number of epochs = 10**
+* **Loss : binary cross-entropy**
+* **Optimizer : Adam**
+* **Learning rate: 1e-4 (no decay)**
+
+Training for 10 epochs with the above configuration took about 30 hours on a 1.4 GHz Intel Core i5 CPU.
+
+The acheived accuracy was : **96% on training set, 92% on test set**
+
+
+## Results :
+
+Input image             |  Segmented image
+:-------------------------:|:-------------------------:
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/20.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/39.png)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/2.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/29.png)
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/19.png)
+
+
 
 
 
