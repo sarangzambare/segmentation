@@ -240,7 +240,7 @@ Input image             |  Segmented image
 ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/15copy_256x256.png)  |  ![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/19.png)
 
 
-### Animating the training process (notice how organelles disappear, and boundaries remain):
+### Animating the training process (notice how organelles tend to disappear):
 
 Input image             |  Segmented image
 :-------------------------:|:-------------------------:
