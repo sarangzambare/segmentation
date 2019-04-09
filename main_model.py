@@ -22,8 +22,8 @@ class CONFIG:
 
 
 #Testing Cases:
-# img_raw = tf.io.read_file(train_dir+'0.png')
-# img_label = tf.io.read_file(label_dir+'0.png')
+# img_raw = tf.io.read_file(CONFIG.train_dir+'0.png')
+# img_label = tf.io.read_file(CONFIG.label_dir+'0.png')
 # img_decoded_raw = tf.image.resize(tf.image.decode_image(img_raw,dtype=tf.float32),size=[256,256])
 # img_decoded_label = tf.image.resize(tf.image.decode_image(img_label,dtype=tf.float32),size=[256,256])
 # img_decoded_label[0,0]
