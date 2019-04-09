@@ -61,9 +61,65 @@ This is a supervised process, and for each input image, the label is a grayscale
 
 ## Model :
 
-Along with a series of downsampling and upsampling layers, the model also has skip connections. Skip connections are connections between activations of two layers which are not consecutive. Such cross layer links helps in cases where it might be necessary to "remember" extracted features at each level, in order to recompose the image from a lower dimensional space. These connections are in no way restrictive, because the weightage that's given to such connections is learned, and should the architecture require no such connections, then the weights would simply be learned to be zero.
+Along with a series of downsampling and upsampling layers, the model also has skip connections. **Skip connections** are connections between activations of two layers which are not consecutive. Such cross layer links helps in cases where it might be necessary to "remember" extracted features at each level, in order to recompose the image from a lower dimensional space. These connections are in no way restrictive, because the weightage that's given to such connections is learned, and should the architecture require no such connections, then the weights would simply be learned to be zero.
 
 Below is the summary of the model used :
+
+```
+def segmentator_model(input_shape):
+
+    x_inputs = Input(input_shape)
+    x = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x_inputs)
+    x = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x_skip_4 = x
+
+    x = MaxPooling2D(pool_size=(2, 2))(x)
+    x = Conv2D(128, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(128, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x_skip_3 = x
+
+    x = MaxPooling2D(pool_size=(2, 2))(x)
+    x = Conv2D(256, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(256, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x_skip_2 = x
+
+    x = MaxPooling2D(pool_size=(2, 2))(x)
+    x = Conv2D(512, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(512, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Dropout(0.5)(x)
+    x_skip_1 = x
+
+    x = MaxPooling2D(pool_size=(2, 2))(x)
+    x = Conv2D(1024, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(1024, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Dropout(0.5)(x)
+
+    x = Conv2DTranspose(filters=512,kernel_size=2,activation='relu',padding='same',strides=2,kernel_initializer='he_normal')(x)
+    x = concatenate([x_skip_1,x], axis = 3)
+    x = Conv2D(512, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(512, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+
+    x = Conv2DTranspose(filters=256,kernel_size=2,activation='relu',padding='same',strides=2,kernel_initializer='he_normal')(x)
+    x = concatenate([x_skip_2,x], axis = 3)
+    x = Conv2D(256, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(256, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+
+    x = Conv2DTranspose(filters=256,kernel_size=2,activation='relu',padding='same',strides=2,kernel_initializer='he_normal')(x)
+    x = concatenate([x_skip_3,x], axis = 3)
+    x = Conv2D(128, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(128, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+
+    x = Conv2DTranspose(filters=128,kernel_size=2,activation='relu',padding='same',strides=2,kernel_initializer='he_normal')(x)
+    x = concatenate([x_skip_4,x], axis = 3)
+    x = Conv2D(64, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(64, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(64, 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(x)
+    x = Conv2D(1, 1, activation = 'sigmoid', padding = 'same', kernel_initializer = 'he_normal')(x)
+
+
+
+    return tf.keras.Model(inputs=x_inputs,outputs=x)
+```
 
 ```
 Model: "model"
@@ -150,6 +206,8 @@ Non-trainable params: 0
 __________________________________________________________________________________________________
 
 ```
+
+Note that all the "concatenate" layers are the skip connections.
 
 
 
