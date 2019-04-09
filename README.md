@@ -63,6 +63,8 @@ This is a supervised process, and for each input image, the label is a grayscale
 
 Along with a series of downsampling and upsampling layers, the model also has skip connections. **Skip connections** are connections between activations of two layers which are not consecutive. Such cross layer links helps in cases where it might be necessary to "remember" extracted features at each level, in order to recompose the image from a lower dimensional space. These connections are in no way restrictive, because the weightage that's given to such connections is learned, and should the architecture require no such connections, then the weights would simply be learned to be zero.
 
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/model.png)
+
 Below is the summary of the model used :
 
 ```
