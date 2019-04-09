@@ -22,7 +22,8 @@ The idea is to have a neural network architecture consisting of:
 2. Upsampling layers : These layers transform their inputs into higher dimensional representations. A way to do this for images is using transposed convolution, which can be thought of as a reversed way of doing the convolution operation (well not exactly). The difference between normal convolution and transposed convolution can be understood well by the gifs below by [Vincent Dumoulin, Francesco Visin](https://github.com/vdumoulin/conv_arithmetic) :
 
 
-## Convolution animations 
+## Convolution animations
+*Blue maps are inputs, and cyan maps are outputs*
 <table style="width:100%; table-layout:fixed;">
   <tr>
     <td><img width="150px" src="png/no_padding_no_strides.gif"></td>
@@ -35,4 +36,20 @@ The idea is to have a neural network architecture consisting of:
     <td>Padding, strides</td>
   </tr>
 </table>
+
+## Transposed convolution animations
+*Blue maps are inputs, and cyan maps are outputs*
+<table style="width:100%; table-layout:fixed;">
+  <tr>
+    <td><img width="150px" src="gif/no_padding_no_strides_transposed.gif"></td>
+    <td><img width="150px" src="gif/arbitrary_padding_no_strides_transposed.gif"></td>
+    <td><img width="150px" src="gif/padding_strides_transposed.gif"></td>
+  </tr>
+  <tr>
+    <td>No padding, no strides, transposed</td>
+    <td>Arbitrary padding, no strides, transposed</td>
+    <td>Padding, strides, transposed</td>
+  </tr>
+</table>
+
 For this specific problem, a host of non-machine learning approaches might give better results as well. (e.g. Edge detection algorithms).
