@@ -252,5 +252,5 @@ Input image             |  Segmented image, as epochs progress
 ## References :
 
 1. [ISBI 2012 2D segmentation challenge](http://brainiac2.mit.edu/isbi_challenge/home)
-2. [VNC; Cardona et al., 2010](https://www.frontiersin.org/articles/10.3389/fnana.2015.00142/full#B6)
+2. [VNC; Cardona et al.,Crowdsourcing the creation of image segmentation algorithms for connectomics 2010](https://www.frontiersin.org/articles/10.3389/fnana.2015.00142/full#B6)
 3. [Vincent Dumoulin, Francesco Visin](https://github.com/vdumoulin/conv_arithmetic)
