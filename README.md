@@ -37,7 +37,7 @@ The idea is to have a neural network architecture consisting of:
   </tr>
 </table>
 
-## Transposed convolution animations
+## Transposed convolution animations (Upsampling)
 *Blue maps are inputs, and cyan maps are outputs*
 <table style="width:100%; table-layout:fixed;">
   <tr>
@@ -51,5 +51,13 @@ The idea is to have a neural network architecture consisting of:
     <td>Padding, strides, transposed</td>
   </tr>
 </table>
+
+The base idea here is to design a dnn, which encodes the features using downsampling layers, and then generates segmented images using upsampling layers.
+
+This is a supervised process, and for each input image, the label is grayscale image consisting of black cell boundaries and white interiors of the cell.
+
+![alt-text](https://raw.githubusercontent.com/sarangzambare/segmentation/master/png/data.gif)
+
+
 
 For this specific problem, a host of non-machine learning approaches might give better results as well. (e.g. Edge detection algorithms).
