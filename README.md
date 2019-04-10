@@ -227,7 +227,7 @@ Before the images are fed into the network, they are resized to (256,256) to dec
 
 Training for 10 epochs with the above configuration took about 30 hours on a 1.4 GHz Intel Core i5 CPU.
 
-The acheived accuracy was : **96% on training set, 92% on test set**
+The acheived accuracy was : **96% on test set**
 
 
 ## Results :
